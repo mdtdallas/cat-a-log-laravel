@@ -11,9 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('cat_breeds', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::create('cat_ranks', function (Blueprint $table) {
+            $table->increments('rank_id');
+            $table->string('rank_name');
         });
     }
 
@@ -22,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('cat_breeds');
+        Schema::dropIfExists('cat_ranks');
     }
 };

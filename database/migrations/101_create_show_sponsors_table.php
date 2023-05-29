@@ -11,8 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('cats', function (Blueprint $table) {
-            $table->id();
+        Schema::create('show_sponsors', function (Blueprint $table) {
+            $table->id('sponsor_id');
+            $table->string('sponsor_name', 30);
+            $table->string('sponsor_img', 255);
+            $table->string('sponsor_url', 255);
             $table->timestamps();
         });
     }
@@ -22,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('cats');
+        Schema::dropIfExists('show_sponsors');
     }
 };

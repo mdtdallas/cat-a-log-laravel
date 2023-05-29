@@ -11,8 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('cat_types', function (Blueprint $table) {
-            $table->id();
+        Schema::create('cat_colours', function (Blueprint $table) {
+            $table->increments('colour_id');
+            $table->string('colour_name');
             $table->timestamps();
         });
     }
@@ -22,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('cat_types');
+        Schema::dropIfExists('cat_colours');
     }
 };

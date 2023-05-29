@@ -12,7 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('cat_genders', function (Blueprint $table) {
-            $table->id();
+            $table->increments('gender_id');
+            $table->string('gender_name');
             $table->timestamps();
         });
     }

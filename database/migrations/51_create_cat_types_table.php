@@ -11,9 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('cat_councils', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::create('cat_types', function (Blueprint $table) {
+            $table->increments('type_id');
+            $table->string('type_name');
         });
     }
 
@@ -22,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('cat_councils');
+        Schema::dropIfExists('cat_types');
     }
 };
