@@ -25,12 +25,8 @@
     </x-responsive-nav-link>
 
 
-    <x-responsive-nav-link href="{{ route('cats.index') }}">
-        {{ __('Cats') }}
-    </x-responsive-nav-link>
-
     <x-responsive-nav-link :href="route('cats.index')" :active="request()->routeIs('cats.index')">
-        {{ __('Cats New') }}
+        {{ __('Cats') }}
     </x-responsive-nav-link>
 
     <x-responsive-nav-link href="">

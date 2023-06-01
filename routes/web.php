@@ -8,6 +8,9 @@ use App\Http\Controllers\CatCouncilController;
 use App\Http\Controllers\CatGenderController;
 use App\Http\Controllers\CatRankController;
 use App\Http\Controllers\CatTypeController;
+use App\Http\Controllers\ShowJudgesController;
+use App\Http\Controllers\ShowSponsorController;
+use App\Http\Controllers\ShowResultsController;
 
 
 Route::get('/', function () {
@@ -25,35 +28,41 @@ Route::middleware([
 });
 
 Route::resource('cats', CatController::class)
-->only(['index', 'show'])
+->only(['index','show', 'create', 'store', 'edit', 'update', 'destroy'])
 ->middleware(['auth', 'verified']);
 
-// Route::get('/cats/{id}', [CatController::class, 'show'])->name('cats.show');
-// Route::get('/cats', [CatController::class, 'index'])->name('cats.index');
-// Route::get('/cats/{id}/edit', [CatController::class, 'edit'])->name('cats.show');
-// Route::delete('/cats/{id}', [CatController::class, 'destroy'])->name('cats.show');
-// Define more routes for CatController if needed
+Route::resource('ranks', CatRankController::class)
+->only(['index','show', 'store', 'edit', 'update', 'destroy'])
+->middleware(['auth', 'verified']);
 
-Route::get('/breeds', [CatBreedController::class, 'index']);
-Route::get('/breeds/{id}', [CatBreedController::class, 'show']);
-// Define more routes for BreedController if needed
+Route::resource('types', CatTypeController::class)
+->only(['index','show', 'store', 'edit', 'update', 'destroy'])
+->middleware(['auth', 'verified']);
 
-Route::get('/colours', [CatColourController::class, 'index']);
-Route::get('/colours/{id}', [CatColourController::class, 'show']);
-// Define more routes for ColourController if needed
+Route::resource('genders', CatGenderController::class)
+->only(['index','show', 'store', 'edit', 'update', 'destroy'])
+->middleware(['auth', 'verified']);
 
-Route::get('/councils', [CatCouncilController::class, 'index']);
-Route::get('/councils/{id}', [CatCouncilController::class, 'show']);
-// Define more routes for CouncilController if needed
+Route::resource('breeds', CatBreedController::class)
+->only(['index','show', 'store', 'edit', 'update', 'destroy'])
+->middleware(['auth', 'verified']);
 
-Route::get('/gender', [CatGenderController::class, 'index']);
-Route::get('/gender/{id}', [CatGenderController::class, 'show']);
-// Define more routes for GenderController if needed
+Route::resource('colours', CatColourController::class)
+->only(['index','show', 'store', 'edit', 'update', 'destroy'])
+->middleware(['auth', 'verified']);
 
-Route::get('/rank', [CatRankController::class, 'index']);
-Route::get('/rank/{id}', [CatRankController::class, 'show']);
-// Define more routes for RankController if needed
+Route::resource('judges', ShowJudgesController::class)
+->only(['index','show', 'store', 'edit', 'update', 'destroy'])
+->middleware(['auth', 'verified']);
 
-Route::get('/type', [CatTypeController::class, 'index']);
-Route::get('/type/{id}', [CatTypeController::class, 'show']);
-// Define more routes for TypeController if needed
+Route::resource('councils', CatCouncilController::class)
+->only(['index','show', 'store', 'edit', 'update', 'destroy'])
+->middleware(['auth', 'verified']);
+
+Route::resource('sponsors', ShowSponsorController::class)
+->only(['index','show', 'store', 'edit', 'update', 'destroy'])
+->middleware(['auth', 'verified']);
+
+Route::resource('results', ShowResultsController::class)
+->only(['index','show', 'store', 'edit', 'update', 'destroy'])
+->middleware(['auth', 'verified']);

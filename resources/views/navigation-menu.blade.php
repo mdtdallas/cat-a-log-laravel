@@ -1,6 +1,6 @@
 <nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
     <!-- Primary Navigation Menu -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
             <div class="flex">
                 <!-- Logo -->
@@ -14,6 +14,33 @@
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
+                    </x-nav-link>
+                    <x-nav-link href="{{ route('ranks.index')  }}" :active="request()->routeIs('cat-rank.index')">
+                        {{ __('Cat Ranks') }}
+                    </x-nav-link>
+                    <x-nav-link href="{{ route('types.index')  }}" :active="request()->routeIs('cat-type.index')">
+                        {{ __('Cat Types') }}
+                    </x-nav-link>
+                    <x-nav-link href="{{ route('genders.index')  }}" :active="request()->routeIs('cat-gender.index')">
+                        {{ __('Cat Genders') }}
+                    </x-nav-link>
+                    <x-nav-link href="{{ route('breeds.index')  }}" :active="request()->routeIs('cat-breed.index')">
+                        {{ __('Cat Breeds') }}
+                    </x-nav-link>
+                    <x-nav-link href="{{ route('colours.index')  }}" :active="request()->routeIs('cat-colour.index')">
+                        {{ __('Cat Colours') }}
+                    </x-nav-link>
+                    <x-nav-link href="{{ route('councils.index')  }}" :active="request()->routeIs('cat-council.index')">
+                        {{ __('Cat Councils') }}
+                    </x-nav-link>
+                    <x-nav-link href="{{ route('judges.index')  }}" :active="request()->routeIs('show-judge.index')">
+                        {{ __('Show Judges') }}
+                    </x-nav-link>
+                    <x-nav-link href="{{ route('sponsors.index')  }}" :active="request()->routeIs('show-sponsor.index')">
+                        {{ __('Show Sponsors') }}
+                    </x-nav-link>
+                    <x-nav-link href="{{ route('results.index')  }}" :active="request()->routeIs('show-result.index')">
+                        {{ __('Show Results') }}
                     </x-nav-link>
                 </div>
             </div>

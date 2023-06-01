@@ -10,6 +10,13 @@ class Cat extends Model
 {
     use HasFactory;
 
-    protected $table = 'cat';
+    protected $table = 'cats';
 
+    protected $fillable = [
+        'cat_name',
+        'date_of_birth',
+        'cat_bio',
+    ];
+
+    protected $primaryKey = 'cat_id';
 }

@@ -3,16 +3,23 @@
 namespace App\Http\Controllers;
 
 use App\Models\CatColour;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\View\View;
+use Illuminate\Pagination\LengthAwarePaginator;
+
 
 class CatColourController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(): View
     {
-        //
+        $colours = CatColour::distinct()->paginate(15);
+        
+        return view('cat-colour.index', compact('colours'));
     }
 
     /**
@@ -26,9 +33,15 @@ class CatColourController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
-        //
+        $validated = $request->validate([
+            'colour_name' => 'required|string|max:255',
+        ]);
+
+        CatColour::create($validated);
+
+        return redirect()->route('colours.index');
     }
 
     /**
@@ -42,24 +55,32 @@ class CatColourController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(CatColour $catColour)
+    public function edit(CatColour $colour) : View
     {
-        //
+        return view('cat-colour.edit', compact('colour'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, CatColour $catColour)
+    public function update(Request $request, CatColour $colour): RedirectResponse
     {
-        //
+        $validated = $request->validate([
+            'colour_name' => 'required|string|max:255',
+        ]);
+
+        $colour->update($validated);
+
+        return redirect()->route('colours.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(CatColour $catColour)
+    public function destroy(CatColour $colour): RedirectResponse
     {
-        //
+        $colour->delete();
+
+        return redirect()->route('colours.index');
     }
 }
