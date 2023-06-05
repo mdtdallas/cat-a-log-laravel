@@ -8,15 +8,14 @@ use Illuminate\Support\Facades\DB;
 
 return new class extends Migration
 {
-    
+
     public function up(): void
     {
         Schema::dropIfExists('cat_breeds');
         Schema::create('cat_breeds', function (Blueprint $table) {
             $table->increments('id');
             $table->string('breed_name');
-            $table->timestamp('created_at')->default(\Carbon\Carbon::now());
-             $table->timestamp('updated_at')->default(\Carbon\Carbon::now());
+            $table->timestamps();
         });
 
         // Insert statement

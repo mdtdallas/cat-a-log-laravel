@@ -19,8 +19,7 @@ return new class extends Migration
             $table->string('judge_expertise', 255);
             $table->unsignedInteger('council_id');
             $table->unsignedInteger('show_id')->nullable();
-            $table->timestamp('created_at')->default(\Carbon\Carbon::now());
-            $table->timestamp('updated_at')->default(\Carbon\Carbon::now());
+            $table->timestamps();
         
             $table->foreign('council_id')->references('id')->on('cat_councils');
             $table->foreign('show_id')->references('id')->on('cat_shows');
@@ -33,21 +32,18 @@ return new class extends Migration
                 'judge_expertise' => 'Expertise 1',
                 'council_id' => 1,
                 'show_id' => 1,
-                'created_at' => now(),
             ],
             [
                 'judge_name' => 'Judge 2',
                 'judge_expertise' => 'Expertise 2',
                 'council_id' => 1,
                 'show_id' => 1,
-                'created_at' => now(),
             ],
             [
                 'judge_name' => 'Judge 3',
                 'judge_expertise' => 'Expertise 3',
                 'council_id' => 1,
                 'show_id' => 1,
-                'created_at' => now(),
             ],
         ]);
         

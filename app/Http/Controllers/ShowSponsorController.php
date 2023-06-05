@@ -33,7 +33,7 @@ class ShowSponsorController extends Controller
     {
         $validated = $request->validate([
             'sponsor_name' => 'required|string|max:255',
-            'sponsor_img' => 'required|string|max:255',
+            
             'sponsor_url' => 'required|string|max:255',
         ]);
 
@@ -65,7 +65,7 @@ class ShowSponsorController extends Controller
     {
         $validated = $request->validate([
             'sponsor_name' => 'required|string|max:255',
-            'sponsor_img' => 'required|string|max:255',
+            
             'sponsor_url' => 'required|string|max:255',
         ]);
 

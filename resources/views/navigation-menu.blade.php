@@ -42,6 +42,9 @@
                     <x-nav-link href="{{ route('results.index')  }}" :active="request()->routeIs('show-result.index')">
                         {{ __('Show Results') }}
                     </x-nav-link>
+                    <x-nav-link href="{{ route('shows.index')  }}" :active="request()->routeIs('cat-show.index')">
+                        {{ __('Cat Shows') }}
+                    </x-nav-link>
                 </div>
             </div>
 

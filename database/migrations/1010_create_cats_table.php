@@ -31,8 +31,7 @@ return new class extends Migration
             $table->unsignedInteger('rank_id')->nullable();
             $table->string('slug');
             $table->unsignedInteger('view_count')->nullable();
-            $table->string('created_on');
-             $table->timestamp('updated_at')->default(\Carbon\Carbon::now());
+            $table->timestamps();
 
             $table->foreign('gender_id')->references('id')->on('cat_genders');
             $table->foreign('breed_id')->references('id')->on('cat_breeds');
@@ -58,8 +57,7 @@ return new class extends Migration
             'type_id' => 4,
             'rank_id' => 5,
             'slug' => 'fluffy',
-            'view_count' => 0,
-            'created_on' => now(),
+            'view_count' => 30,
         ]);
 
         

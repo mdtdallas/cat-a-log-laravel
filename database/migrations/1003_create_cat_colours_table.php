@@ -17,8 +17,7 @@ return new class extends Migration
         Schema::create('cat_colours', function (Blueprint $table) {
             $table->increments('id');
             $table->string('colour_name');
-            $table->timestamp('created_at')->default(\Carbon\Carbon::now());
-             $table->timestamp('updated_at')->default(\Carbon\Carbon::now());
+            $table->timestamps();
         });
 
         DB::table('cat_colours')->insert([

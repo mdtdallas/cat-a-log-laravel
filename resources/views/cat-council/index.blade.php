@@ -85,6 +85,9 @@
                                         </button>
                                     </x-slot>
                                     <x-slot name="content">
+                                        <x-dropdown-link :href="route('councils.show', $council)">
+                                            {{ __('View') }}
+                                        </x-dropdown-link>
                                         <x-dropdown-link :href="route('councils.edit', $council)">
                                             {{ __('Edit') }}
                                         </x-dropdown-link>

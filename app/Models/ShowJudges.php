@@ -15,6 +15,11 @@ class ShowJudges extends Model
         return $this->belongsToMany(Show::class, 'assigned_judges', 'judge_id', 'show_id');
     }
 
+    public function assignedJudges()
+    {
+        return $this->belongsToMany(ShowJudges::class, 'assigned_judges', 'show_id', 'judge_id');
+    }
+
     public function judges(): HasMany
     {
         return $this->hasMany(ShowJudges::class);

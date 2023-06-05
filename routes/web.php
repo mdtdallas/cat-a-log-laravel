@@ -11,6 +11,7 @@ use App\Http\Controllers\CatTypeController;
 use App\Http\Controllers\ShowJudgesController;
 use App\Http\Controllers\ShowSponsorController;
 use App\Http\Controllers\ShowResultsController;
+use App\Http\Controllers\CatShowController;
 
 
 Route::get('/', function () {
@@ -64,5 +65,9 @@ Route::resource('sponsors', ShowSponsorController::class)
 ->middleware(['auth', 'verified']);
 
 Route::resource('results', ShowResultsController::class)
+->only(['index','show', 'store', 'edit', 'update', 'destroy'])
+->middleware(['auth', 'verified']);
+
+Route::resource('shows', CatShowController::class)
 ->only(['index','show', 'store', 'edit', 'update', 'destroy'])
 ->middleware(['auth', 'verified']);

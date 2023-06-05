@@ -22,10 +22,10 @@ return new class extends Migration
 
         // Insert statement
         DB::table('cat_genders')->insert([
-            ['gender_name' => 'Male', 'created_at' => now()],
-            ['gender_name' => 'Female', 'created_at' => now()],
-            ['gender_name' => 'Spay', 'created_at' => now()],
-            ['gender_name' => 'Neuter', 'created_at' => now()],
+            ['gender_name' => 'Male'],
+            ['gender_name' => 'Female'],
+            ['gender_name' => 'Spay'],
+            ['gender_name' => 'Neuter'],
         ]);
     }
 

@@ -24,8 +24,7 @@ return new class extends Migration
             $table->string('council_phone', 20)->nullable();
             $table->string('council_url')->nullable();
             $table->unsignedBigInteger('user_id');
-            $table->timestamp('created_at')->default(\Carbon\Carbon::now());
-             $table->timestamp('updated_at')->default(\Carbon\Carbon::now());
+           $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');
         });
@@ -42,7 +41,6 @@ return new class extends Migration
                 'council_phone' => '123-456-7890',
                 'council_url' => 'http://example.com',
                 'user_id' => 1,
-                'created_at' => now(),
             ],
         ]);
     }

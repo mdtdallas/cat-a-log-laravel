@@ -20,8 +20,7 @@ return new class extends Migration
             $table->string('entry_kitten');
             $table->string('entry_placement');
             $table->string('entry_score');
-            $table->timestamp('created_at')->default(\Carbon\Carbon::now());
-             $table->timestamp('updated_at')->default(\Carbon\Carbon::now());
+           $table->timestamps();
 
             $table->foreign('cat_id')->references('id')->on('cats');
             $table->foreign('show_id')->references('id')->on('cat_shows');

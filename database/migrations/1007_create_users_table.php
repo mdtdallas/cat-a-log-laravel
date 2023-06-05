@@ -24,8 +24,7 @@ return new class extends Migration
             $table->foreignId('current_team_id')->nullable();
             $table->string('profile_photo_path', 2048)->nullable();
             $table->unsignedBigInteger('role_id')->nullable();
-            $table->timestamp('created_at')->default(\Carbon\Carbon::now());
-             $table->timestamp('updated_at')->default(\Carbon\Carbon::now());
+           $table->timestamps();
 
             $table->foreign('role_id')->references('id')->on('user_roles');
         }, 'if not exists');
@@ -40,7 +39,6 @@ return new class extends Migration
             'current_team_id' => null,
             'profile_photo_path' => null,
             'role_id' => 1, // Assuming the role ID is 1
-            'created_at' => now(),
         ]);
     }
 

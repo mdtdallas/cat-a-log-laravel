@@ -3,18 +3,16 @@
         <form method="POST" action="{{ route('councils.update', $council) }}">
             @csrf
             @method('patch')
-            <x-label for="council_name" :value="__('Cat Council')" class="my-4"/>
-            <x-input
-                name="council_name"
-                class="block w-full p-2 border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm"
-                value="{{ old('council_name', $council->council_name) }}"
-            />
-            <x-label for="council_short_name" :value="__('Council Short Name')" class="my-4"/>
-            <x-input
-                name="council_short_name"
-                class="block w-full p-2 border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm"
-                value="{{ old('council_short_name', $council->council_short_name) }}"
-            />
+            
+            <x-label for="council_name" :value="__('Council Title')" class="mt-3" />
+            <x-input id="council_name" class="block mt-1 w-full" type="text" name="council_name" value="{{ old('council_name', $council->council_name) }}"
+                 autofocus />
+            <x-input-error for="council_name" class="mt-2" />
+            
+            <x-label for="council_short_name" :value="__('Council Short Title')" class="mt-3" />
+            <x-input id="council_short_name" class="block mt-1 w-full" type="text" name="council_short_name" value="{{ old('council_short_name', $council->council_short_name) }}"
+                 autofocus />
+            <x-input-error for="council_short_name" class="mt-2" />
             
 
             <x-label for="council_img" :value="__('Image')" class="mt-3" />

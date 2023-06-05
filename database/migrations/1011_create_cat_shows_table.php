@@ -24,8 +24,7 @@ return new class extends Migration
         $table->string('show_rules');
         $table->string('show_covid_plan');
         $table->text('show_description');
-        $table->string('created_on');
-         $table->timestamp('updated_at')->default(\Carbon\Carbon::now());
+        $table->timestamps();
     });
 
     // Insert statement
@@ -40,7 +39,6 @@ return new class extends Migration
             'show_rules' => 'Rules of Show 1',
             'show_covid_plan' => 'COVID Plan of Show 1',
             'show_description' => 'Description of Show 1',
-            'created_on' => now(),
         ],
         [
             'show_name' => 'Cat Show 2',
@@ -52,7 +50,6 @@ return new class extends Migration
             'show_rules' => 'Rules of Show 2',
             'show_covid_plan' => 'COVID Plan of Show 2',
             'show_description' => 'Description of Show 2',
-            'created_on' => now(),
         ],
         [
             'show_name' => 'Cat Show 3',
@@ -64,7 +61,6 @@ return new class extends Migration
             'show_rules' => 'Rules of Show 3',
             'show_covid_plan' => 'COVID Plan of Show 3',
             'show_description' => 'Description of Show 3',
-            'created_on' => now(),
         ],
     ]);
 }

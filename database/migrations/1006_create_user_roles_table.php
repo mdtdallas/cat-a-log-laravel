@@ -16,8 +16,7 @@ return new class extends Migration
         Schema::create('user_roles', function (Blueprint $table) {
             $table->id('id');
             $table->string('role_name');
-            $table->timestamp('created_at')->default(\Carbon\Carbon::now());
-             $table->timestamp('updated_at')->default(\Carbon\Carbon::now());
+           $table->timestamps();
         });
 
          // Insert statement

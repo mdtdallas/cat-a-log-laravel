@@ -14,12 +14,11 @@ return new class extends Migration
     {
         Schema::dropIfExists('show_sponsors');
         Schema::create('show_sponsors', function (Blueprint $table) {
-            $table->id('id');
+            $table->increments('id');
             $table->string('sponsor_name', 30);
             $table->string('sponsor_img', 255);
             $table->string('sponsor_url', 255);
-            $table->timestamp('created_at')->default(\Carbon\Carbon::now());
-             $table->timestamp('updated_at')->default(\Carbon\Carbon::now());
+           $table->timestamps();
         });
         
         // Insert statement
@@ -27,8 +26,6 @@ return new class extends Migration
             'sponsor_name' => 'Sponsor 1',
             'sponsor_img' => 'sponsor1.jpg',
             'sponsor_url' => 'https://www.sponsor1.com',
-            'created_at' => now(),
-            'updated_at' => now(),
         ]);
         
     }

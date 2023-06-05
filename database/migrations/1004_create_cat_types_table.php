@@ -17,8 +17,7 @@ return new class extends Migration
         Schema::create('cat_types', function (Blueprint $table) {
             $table->increments('id');
             $table->string('type_name');
-            $table->timestamp('created_at')->default(\Carbon\Carbon::now());
-             $table->timestamp('updated_at')->default(\Carbon\Carbon::now());
+           $table->timestamps();
         });
 
          // Insert statement
